@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import DocumentForm from 'components/DocumentForm';
 import DocumentStatus from 'components/DocumentStatus';
 import History from 'components/History';
+import s from './StatusView.module.css';
 
 const StatusView = () => {
   const [docNumber, setDocNumber] = useState('');
@@ -36,13 +37,15 @@ const StatusView = () => {
         setDocStatus={setDocStatus}
         addNewDocument={addNewDocument}
       />
-      {info && <DocumentStatus info={info} />}
-      <History
-        documents={documents}
-        setDocStatus={setDocStatus}
-        setDocNumber={setDocNumber}
-        setDocuments={setDocuments}
-      />
+      <div className={s.wrapper}>
+        {info && <DocumentStatus info={info} />}
+        <History
+          documents={documents}
+          setDocStatus={setDocStatus}
+          setDocNumber={setDocNumber}
+          setDocuments={setDocuments}
+        />
+      </div>
     </>
   );
 };

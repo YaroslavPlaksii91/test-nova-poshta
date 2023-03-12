@@ -41,3 +41,8 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+button,
+a {
+  outline: none;
+}

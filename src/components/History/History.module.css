@@ -1,0 +1,46 @@
+.aside {
+  /* outline: 1px solid black; */
+  padding: 5px 20px;
+  border-left: 1px solid black;
+  /* text-align: center; */
+}
+
+.title {
+  margin-bottom: 10px;
+  font-style: 16px;
+}
+
+.list {
+  margin-bottom: 10px;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.itemText {
+  display: inline-block;
+  cursor: pointer;
+  scale: 1;
+  transition: scale 250ms ease-in-out;
+}
+
+.itemText:hover,
+.itemText:focus {
+  scale: 1.05;
+}
+
+.button {
+  width: 150px;
+  height: 30px;
+  background-color: orange;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 250ms ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  color: white;
+}

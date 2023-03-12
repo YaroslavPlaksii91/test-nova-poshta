@@ -1,15 +1,23 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import s from './Nav.module.css';
 
 const Nav = () => (
-  <nav className={s.nav}>
-    <Link to="/" className={s.link}>
-      Перевірити ТТН
-    </Link>
-    <Link to="/warehouses" className={s.link}>
-      Список відділень
-    </Link>
-  </nav>
+  <header>
+    <nav className={s.nav}>
+      <NavLink
+        to="/"
+        className={({ isActive }) => (isActive ? s.active : s.link)}
+      >
+        Перевірити ТТН
+      </NavLink>
+      <NavLink
+        to="/warehouses"
+        className={({ isActive }) => (isActive ? s.active : s.link)}
+      >
+        Список відділень
+      </NavLink>
+    </nav>
+  </header>
 );
 
 export default Nav;

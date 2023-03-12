@@ -5,8 +5,19 @@
   width: 200px;
   height: 50px;
   font-weight: 500;
-  background-color: coral;
+  background-color: orangered;
   border-radius: 8px;
+  transition: color 250ms ease-in-out;
+}
+
+.link:hover,
+.link:focus {
+  color: white;
+}
+
+.active {
+  composes: link;
+  color: white;
 }
 
 .nav {
