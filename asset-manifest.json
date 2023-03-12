@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/test-nova-poshta/static/css/main.3c0c9886.css",
-    "main.js": "/test-nova-poshta/static/js/main.88a8403c.js",
+    "main.js": "/test-nova-poshta/static/js/main.2d6715da.js",
     "index.html": "/test-nova-poshta/index.html",
     "main.3c0c9886.css.map": "/test-nova-poshta/static/css/main.3c0c9886.css.map",
-    "main.88a8403c.js.map": "/test-nova-poshta/static/js/main.88a8403c.js.map"
+    "main.2d6715da.js.map": "/test-nova-poshta/static/js/main.2d6715da.js.map"
   },
   "entrypoints": [
     "static/css/main.3c0c9886.css",
-    "static/js/main.88a8403c.js"
+    "static/js/main.2d6715da.js"
   ]
 }
