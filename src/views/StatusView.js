@@ -7,7 +7,7 @@ const StatusView = () => {
   const [docNumber, setDocNumber] = useState('');
   const [info, setInfo] = useState('');
   const [documents, setDocuments] = useState(
-    () => JSON.parse(localStorage.getItem('documents')) ?? [],
+    () => JSON.parse(localStorage.getItem('documents')) ?? []
   );
   const isFirstRender = useRef(true);
 
@@ -41,6 +41,7 @@ const StatusView = () => {
         documents={documents}
         setDocStatus={setDocStatus}
         setDocNumber={setDocNumber}
+        setDocuments={setDocuments}
       />
     </>
   );

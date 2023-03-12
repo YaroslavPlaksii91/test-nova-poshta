@@ -1,7 +1,7 @@
 import { getDocumentStatus } from 'services/api';
 import s from './History.module.css';
 
-const History = ({ documents, setDocStatus, setDocNumber }) => {
+const History = ({ documents, setDocStatus, setDocNumber, setDocuments }) => {
   const onDocClick = async e => {
     const {
       Status: status,
@@ -11,6 +11,11 @@ const History = ({ documents, setDocStatus, setDocNumber }) => {
 
     setDocStatus({ status, sender, recipient });
     setDocNumber(e.target.textContent);
+  };
+
+  const onBtnClick = () => {
+    localStorage.removeItem('documents');
+    setDocuments([]);
   };
 
   return (
@@ -24,6 +29,9 @@ const History = ({ documents, setDocStatus, setDocNumber }) => {
             </li>
           ))}
       </ul>
+      <button type="button" onClick={onBtnClick}>
+        Очистити історію
+      </button>
     </aside>
   );
 };
