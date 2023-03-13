@@ -1,5 +1,7 @@
 import { FcEmptyTrash } from 'react-icons/fc';
+import { toast } from 'react-toastify';
 import { getDocumentStatus } from 'services/api';
+import Button from 'components/Button';
 import s from './History.module.css';
 
 const History = ({
@@ -8,18 +10,27 @@ const History = ({
   setDocNumber,
   setDocuments,
   setIsLoading,
+  docNumber,
 }) => {
   const onDocClick = async e => {
-    setIsLoading(true);
-    const {
-      Status: status,
-      WarehouseSender: sender,
-      WarehouseRecipient: recipient,
-    } = await getDocumentStatus(e.target.textContent);
+    if (e.target.textContent === docNumber)
+      return toast.warn('Документ вже вибраний');
 
-    setDocStatus({ status, sender, recipient });
-    setDocNumber(e.target.textContent);
-    setIsLoading(false);
+    try {
+      setIsLoading(true);
+      const {
+        Status: status,
+        WarehouseSender: sender,
+        WarehouseRecipient: recipient,
+      } = await getDocumentStatus(e.target.textContent);
+
+      setDocStatus({ status, sender, recipient });
+      setDocNumber(e.target.textContent);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const onBtnClick = () => {
@@ -54,9 +65,9 @@ const History = ({
           ))}
       </ul>
       {documents.length > 0 && (
-        <button type="button" onClick={onBtnClick} className={s.button}>
+        <Button type={'button'} width={150} onClick={onBtnClick}>
           Очистити історію
-        </button>
+        </Button>
       )}
     </aside>
   );

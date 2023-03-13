@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { getWarehouses } from 'services/api';
+import Button from 'components/Button';
 import s from './CityForm.module.css';
 
 const CityForm = ({ setWarehouses, setIsLoading }) => {
@@ -12,11 +13,17 @@ const CityForm = ({ setWarehouses, setIsLoading }) => {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    setIsLoading(true);
-    const warehouses = await getWarehouses(query);
+    try {
+      setIsLoading(true);
 
-    setWarehouses(warehouses);
-    setIsLoading(false);
+      const warehouses = await getWarehouses(query);
+
+      setWarehouses(warehouses);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -33,9 +40,9 @@ const CityForm = ({ setWarehouses, setIsLoading }) => {
         onChange={handleChange}
       />
 
-      <button type="submit" className={s.button}>
+      <Button type={'submit'} width={100}>
         Пошук
-      </button>
+      </Button>
     </form>
   );
 };

@@ -47,6 +47,7 @@ const StatusView = ({ setIsLoading }) => {
           setDocNumber={setDocNumber}
           setDocuments={setDocuments}
           setIsLoading={setIsLoading}
+          docNumber={docNumber}
         />
       </div>
     </>

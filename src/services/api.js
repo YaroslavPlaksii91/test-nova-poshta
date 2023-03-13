@@ -20,15 +20,15 @@ export async function getDocumentStatus(documentNumber) {
   return data.data[0];
 }
 
-export async function getWarehouses(settlement = 'Київ') {
+export async function getWarehouses(settlement = 'Київ', page = '1') {
   const { data } = await axios.post('', {
     apiKey: API_KEY,
     modelName: 'Address',
     calledMethod: 'getWarehouses',
     methodProperties: {
       CityName: settlement,
-      Page: '1',
-      Limit: '50',
+      Page: page,
+      Limit: '100',
       Language: 'UA',
     },
   });

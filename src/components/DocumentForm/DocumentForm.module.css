@@ -18,21 +18,6 @@
   outline: 1px solid orange;
 }
 
-.button {
-  width: 150px;
-  height: 30px;
-  background-color: orange;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: color 250ms ease-in-out;
-}
-
-.button:hover,
-.button:focus {
-  color: white;
-}
-
 @media (max-width: 767px) {
   .form input {
     display: block;

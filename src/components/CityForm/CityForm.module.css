@@ -19,21 +19,6 @@
   outline: 1px solid orange;
 }
 
-.button {
-  width: 100px;
-  height: 25px;
-  background-color: orange;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: color 250ms ease-in-out;
-}
-
-.button:hover,
-.button:focus {
-  color: white;
-}
-
 @media (max-width: 767px) {
   .form {
     margin: 0 auto 30px;

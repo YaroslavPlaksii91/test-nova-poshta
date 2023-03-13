@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify';
 import { getDocumentStatus } from 'services/api';
+import Button from 'components/Button';
 import s from './DocumentForm.module.css';
 
 const DocumentForm = ({
@@ -24,16 +25,21 @@ const DocumentForm = ({
 
     if (documents.includes(docNumber)) return toast.warn('Документ вже існує');
 
-    setIsLoading(true);
-    const {
-      Status: status,
-      WarehouseSender: sender,
-      WarehouseRecipient: recipient,
-    } = await getDocumentStatus(docNumber);
+    try {
+      setIsLoading(true);
+      const {
+        Status: status,
+        WarehouseSender: sender,
+        WarehouseRecipient: recipient,
+      } = await getDocumentStatus(docNumber);
 
-    setDocStatus({ status, sender, recipient });
-    addNewDocument(docNumber);
-    setIsLoading(false);
+      setDocStatus({ status, sender, recipient });
+      addNewDocument(docNumber);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -49,9 +55,9 @@ const DocumentForm = ({
         onChange={handleChange}
       />
 
-      <button type="submit" className={s.button}>
+      <Button type={'submit'} width={150}>
         Get status TTN
-      </button>
+      </Button>
     </form>
   );
 };
