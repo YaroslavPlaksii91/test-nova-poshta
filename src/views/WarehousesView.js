@@ -9,7 +9,7 @@ const WarehousesView = () => {
 
   useEffect(() => {
     getWarehouses(query).then(setWarehouses).catch(console.log);
-  }, []);
+  }, [query]);
 
   return (
     <>
