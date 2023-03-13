@@ -3,16 +3,20 @@ import { getWarehouses } from 'services/api';
 import WarehousesList from 'components/WarehousesList';
 import CityForm from 'components/CityForm';
 
-const WarehousesView = () => {
+const WarehousesView = ({ setIsLoading }) => {
   const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
-    getWarehouses().then(setWarehouses).catch(console.log);
+    setIsLoading(true);
+    getWarehouses()
+      .then(setWarehouses)
+      .catch(console.log)
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (
     <>
-      <CityForm setWarehouses={setWarehouses} />
+      <CityForm setWarehouses={setWarehouses} setIsLoading={setIsLoading} />
       <WarehousesList warehouses={warehouses} />
     </>
   );

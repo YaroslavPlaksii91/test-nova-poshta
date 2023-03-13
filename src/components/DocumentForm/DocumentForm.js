@@ -1,11 +1,14 @@
+import { toast } from 'react-toastify';
 import { getDocumentStatus } from 'services/api';
 import s from './DocumentForm.module.css';
 
 const DocumentForm = ({
   docNumber,
+  documents,
   setDocNumber,
   setDocStatus,
   addNewDocument,
+  setIsLoading,
 }) => {
   const handleChange = e => {
     setDocNumber(e.target.value);
@@ -14,6 +17,14 @@ const DocumentForm = ({
   const handleSubmit = async e => {
     e.preventDefault();
 
+    const regex = /^\d{14}$/;
+    const isValid = regex.test(docNumber);
+
+    if (!isValid) return toast.warn('Номер повинен містити 14 цифр');
+
+    if (documents.includes(docNumber)) return toast.warn('Документ вже існує');
+
+    setIsLoading(true);
     const {
       Status: status,
       WarehouseSender: sender,
@@ -22,6 +33,7 @@ const DocumentForm = ({
 
     setDocStatus({ status, sender, recipient });
     addNewDocument(docNumber);
+    setIsLoading(false);
   };
 
   return (
@@ -31,7 +43,6 @@ const DocumentForm = ({
         id="documentNumber"
         type="text"
         name="documentNumber"
-        pattern="[0-9]{14}"
         title="Введіть номер накладної"
         required
         value={docNumber}

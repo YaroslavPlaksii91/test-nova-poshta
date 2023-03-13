@@ -14,19 +14,36 @@
 }
 
 .item {
-  display: inline-block;
+  display: flex;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.itemText {
+  margin-right: 10px;
   cursor: pointer;
   scale: 1;
   transition: scale 250ms ease-in-out;
 }
 
-.item:hover,
-.item:focus {
+.itemText:hover,
+.itemText:focus {
+  outline: none;
   scale: 1.05;
 }
 
-.item:not(:last-child) {
-  margin-bottom: 10px;
+.icon {
+  cursor: pointer;
+  scale: 1;
+  transition: scale 250ms ease-in-out;
+}
+
+.icon:hover,
+.icon:focus {
+  outline: none;
+  scale: 1.2;
 }
 
 .button {

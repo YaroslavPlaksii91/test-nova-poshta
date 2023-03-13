@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { getWarehouses } from 'services/api';
 import s from './CityForm.module.css';
 
-const CityForm = ({ setWarehouses }) => {
+const CityForm = ({ setWarehouses, setIsLoading }) => {
   const [query, setQuery] = useState('Київ');
 
   const handleChange = e => {
@@ -12,9 +12,11 @@ const CityForm = ({ setWarehouses }) => {
   const handleSubmit = async e => {
     e.preventDefault();
 
+    setIsLoading(true);
     const warehouses = await getWarehouses(query);
 
     setWarehouses(warehouses);
+    setIsLoading(false);
   };
 
   return (
