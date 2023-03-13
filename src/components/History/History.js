@@ -29,9 +29,11 @@ const History = ({ documents, setDocStatus, setDocNumber, setDocuments }) => {
             </li>
           ))}
       </ul>
-      <button type="button" onClick={onBtnClick} className={s.button}>
-        Очистити історію
-      </button>
+      {documents.length > 0 && (
+        <button type="button" onClick={onBtnClick} className={s.button}>
+          Очистити історію
+        </button>
+      )}
     </aside>
   );
 };

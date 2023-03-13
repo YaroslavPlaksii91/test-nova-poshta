@@ -3,7 +3,7 @@ import { getWarehouses } from 'services/api';
 import s from './CityForm.module.css';
 
 const CityForm = ({ setWarehouses }) => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('Київ');
 
   const handleChange = e => {
     setQuery(e.target.value);

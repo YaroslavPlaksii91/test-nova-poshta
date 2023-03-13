@@ -12,3 +12,13 @@
 .error {
   text-align: center;
 }
+
+@media (max-width: 767px) {
+  .list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
