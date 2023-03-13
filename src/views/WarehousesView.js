@@ -5,19 +5,14 @@ import CityForm from 'components/CityForm';
 
 const WarehousesView = () => {
   const [warehouses, setWarehouses] = useState([]);
-  const [query, setQuery] = useState('Київ');
 
   useEffect(() => {
-    getWarehouses(query).then(setWarehouses).catch(console.log);
-  }, [query]);
+    getWarehouses().then(setWarehouses).catch(console.log);
+  }, []);
 
   return (
     <>
-      <CityForm
-        setQuery={setQuery}
-        query={query}
-        setWarehouses={setWarehouses}
-      />
+      <CityForm setWarehouses={setWarehouses} />
       <WarehousesList warehouses={warehouses} />
     </>
   );

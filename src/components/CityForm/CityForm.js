@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { getWarehouses } from 'services/api';
 import s from './CityForm.module.css';
 
-const CityForm = ({ query, setQuery, setWarehouses }) => {
+const CityForm = ({ setWarehouses }) => {
+  const [query, setQuery] = useState('');
+
   const handleChange = e => {
     setQuery(e.target.value);
   };
