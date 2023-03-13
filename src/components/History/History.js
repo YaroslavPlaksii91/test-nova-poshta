@@ -1,5 +1,6 @@
 import { FcEmptyTrash } from 'react-icons/fc';
 import { getDocumentStatus } from 'services/api';
+import Button from 'components/Button';
 import s from './History.module.css';
 
 const History = ({
@@ -54,9 +55,9 @@ const History = ({
           ))}
       </ul>
       {documents.length > 0 && (
-        <button type="button" onClick={onBtnClick} className={s.button}>
+        <Button type={'button'} width={150} onClick={onBtnClick}>
           Очистити історію
-        </button>
+        </Button>
       )}
     </aside>
   );

@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify';
 import { getDocumentStatus } from 'services/api';
+import Button from 'components/Button';
 import s from './DocumentForm.module.css';
 
 const DocumentForm = ({
@@ -49,9 +50,9 @@ const DocumentForm = ({
         onChange={handleChange}
       />
 
-      <button type="submit" className={s.button}>
+      <Button type={'submit'} width={150}>
         Get status TTN
-      </button>
+      </Button>
     </form>
   );
 };
