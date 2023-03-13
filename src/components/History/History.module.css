@@ -43,3 +43,13 @@
 .button:focus {
   color: white;
 }
+
+@media (max-width: 767px) {
+  .item {
+    display: block;
+  }
+
+  .aside {
+    border: none;
+  }
+}

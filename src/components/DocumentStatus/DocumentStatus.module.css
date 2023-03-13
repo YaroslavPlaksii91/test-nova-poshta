@@ -11,3 +11,10 @@
 .text:not(:last-child) {
   margin-bottom: 10px;
 }
+
+@media (max-width: 767px) {
+  .section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

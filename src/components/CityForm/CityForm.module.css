@@ -33,3 +33,19 @@
 .button:focus {
   color: white;
 }
+
+@media (max-width: 767px) {
+  .form {
+    margin: 0 auto 30px;
+  }
+
+  .form label {
+    display: block;
+  }
+
+  .form input {
+    display: block;
+    width: 50%;
+    margin: 10px auto;
+  }
+}
