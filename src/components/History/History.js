@@ -1,4 +1,5 @@
 import { FcEmptyTrash } from 'react-icons/fc';
+import { toast } from 'react-toastify';
 import { getDocumentStatus } from 'services/api';
 import Button from 'components/Button';
 import s from './History.module.css';
@@ -9,8 +10,12 @@ const History = ({
   setDocNumber,
   setDocuments,
   setIsLoading,
+  docNumber,
 }) => {
   const onDocClick = async e => {
+    if (e.target.textContent === docNumber)
+      return toast.warn('Документ вже вибраний');
+
     try {
       setIsLoading(true);
       const {
