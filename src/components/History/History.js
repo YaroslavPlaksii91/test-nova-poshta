@@ -11,16 +11,21 @@ const History = ({
   setIsLoading,
 }) => {
   const onDocClick = async e => {
-    setIsLoading(true);
-    const {
-      Status: status,
-      WarehouseSender: sender,
-      WarehouseRecipient: recipient,
-    } = await getDocumentStatus(e.target.textContent);
+    try {
+      setIsLoading(true);
+      const {
+        Status: status,
+        WarehouseSender: sender,
+        WarehouseRecipient: recipient,
+      } = await getDocumentStatus(e.target.textContent);
 
-    setDocStatus({ status, sender, recipient });
-    setDocNumber(e.target.textContent);
-    setIsLoading(false);
+      setDocStatus({ status, sender, recipient });
+      setDocNumber(e.target.textContent);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const onBtnClick = () => {

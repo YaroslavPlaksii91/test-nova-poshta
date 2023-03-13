@@ -25,16 +25,21 @@ const DocumentForm = ({
 
     if (documents.includes(docNumber)) return toast.warn('Документ вже існує');
 
-    setIsLoading(true);
-    const {
-      Status: status,
-      WarehouseSender: sender,
-      WarehouseRecipient: recipient,
-    } = await getDocumentStatus(docNumber);
+    try {
+      setIsLoading(true);
+      const {
+        Status: status,
+        WarehouseSender: sender,
+        WarehouseRecipient: recipient,
+      } = await getDocumentStatus(docNumber);
 
-    setDocStatus({ status, sender, recipient });
-    addNewDocument(docNumber);
-    setIsLoading(false);
+      setDocStatus({ status, sender, recipient });
+      addNewDocument(docNumber);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

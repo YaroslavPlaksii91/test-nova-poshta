@@ -13,11 +13,17 @@ const CityForm = ({ setWarehouses, setIsLoading }) => {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    setIsLoading(true);
-    const warehouses = await getWarehouses(query);
+    try {
+      setIsLoading(true);
 
-    setWarehouses(warehouses);
-    setIsLoading(false);
+      const warehouses = await getWarehouses(query);
+
+      setWarehouses(warehouses);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
