@@ -8,17 +8,16 @@ const WarehousesView = ({ setIsLoading }) => {
   const isFirstRender = useRef(true);
 
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
+    if (!isFirstRender.current) return;
 
     setIsLoading(true);
     getWarehouses()
       .then(setWarehouses)
       .catch(console.log)
       .finally(() => setIsLoading(false));
-  }, []);
+
+    isFirstRender.current = false;
+  }, [setIsLoading]);
 
   return (
     <>
