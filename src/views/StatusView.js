@@ -4,7 +4,7 @@ import DocumentStatus from 'components/DocumentStatus';
 import History from 'components/History';
 import s from './StatusView.module.css';
 
-const StatusView = () => {
+const StatusView = ({ setIsLoading }) => {
   const [docNumber, setDocNumber] = useState('');
   const [info, setInfo] = useState('');
   const [documents, setDocuments] = useState(
@@ -37,6 +37,7 @@ const StatusView = () => {
         setDocNumber={setDocNumber}
         setDocStatus={setDocStatus}
         addNewDocument={addNewDocument}
+        setIsLoading={setIsLoading}
       />
       <div className={s.wrapper}>
         {info && <DocumentStatus info={info} />}
@@ -45,6 +46,7 @@ const StatusView = () => {
           setDocStatus={setDocStatus}
           setDocNumber={setDocNumber}
           setDocuments={setDocuments}
+          setIsLoading={setIsLoading}
         />
       </div>
     </>

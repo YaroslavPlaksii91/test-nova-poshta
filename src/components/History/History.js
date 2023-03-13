@@ -1,8 +1,15 @@
 import { getDocumentStatus } from 'services/api';
 import s from './History.module.css';
 
-const History = ({ documents, setDocStatus, setDocNumber, setDocuments }) => {
+const History = ({
+  documents,
+  setDocStatus,
+  setDocNumber,
+  setDocuments,
+  setIsLoading,
+}) => {
   const onDocClick = async e => {
+    setIsLoading(true);
     const {
       Status: status,
       WarehouseSender: sender,
@@ -11,6 +18,7 @@ const History = ({ documents, setDocStatus, setDocNumber, setDocuments }) => {
 
     setDocStatus({ status, sender, recipient });
     setDocNumber(e.target.textContent);
+    setIsLoading(false);
   };
 
   const onBtnClick = () => {
