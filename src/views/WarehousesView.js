@@ -1,15 +1,26 @@
 import { useState, useEffect } from 'react';
 import { getWarehouses } from 'services/api';
 import WarehousesList from 'components/WarehousesList';
+import CityForm from 'components/CityForm';
 
 const WarehousesView = () => {
   const [warehouses, setWarehouses] = useState([]);
+  const [query, setQuery] = useState('Київ');
 
   useEffect(() => {
-    getWarehouses().then(setWarehouses).catch(console.log);
+    getWarehouses(query).then(setWarehouses).catch(console.log);
   }, []);
 
-  return <WarehousesList warehouses={warehouses} />;
+  return (
+    <>
+      <CityForm
+        setQuery={setQuery}
+        query={query}
+        setWarehouses={setWarehouses}
+      />
+      <WarehousesList warehouses={warehouses} />
+    </>
+  );
 };
 
 export default WarehousesView;

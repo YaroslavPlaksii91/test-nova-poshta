@@ -1,22 +1,23 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Routes, Route } from 'react-router-dom';
 import StatusView from './views/StatusView';
 import WarehousesView from './views/WarehousesView';
+import Container from 'components/Container';
+import Nav from 'components/Nav';
 import './App.css';
 
 export const App = () => {
   return (
-    <div>
-      <nav>
-        <Link to="/">Перевірити ТТН</Link>
-        <Link to="/warehouses">Список відділень</Link>
-      </nav>
-
+    <Container>
+      <Nav />
       <Routes>
         <Route path="/" element={<StatusView />} />
         <Route path="/warehouses" element={<WarehousesView />} />
         <Route path="*" element={<StatusView />} />
       </Routes>
-    </div>
+      <ToastContainer autoClose={3000} />
+    </Container>
   );
 };
 

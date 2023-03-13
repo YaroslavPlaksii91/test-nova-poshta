@@ -19,17 +19,17 @@ const History = ({ documents, setDocStatus, setDocNumber, setDocuments }) => {
   };
 
   return (
-    <aside>
+    <aside className={s.aside}>
       <h2 className={s.title}>Історія</h2>
-      <ul className={s.historyList}>
+      <ul className={s.list}>
         {documents.length > 0 &&
           documents.map(doc => (
-            <li key={doc} className={s.listItem} onClick={onDocClick}>
-              {doc}
+            <li key={doc} className={s.item} onClick={onDocClick} tabIndex="0">
+              <p>{doc}</p>
             </li>
           ))}
       </ul>
-      <button type="button" onClick={onBtnClick}>
+      <button type="button" onClick={onBtnClick} className={s.button}>
         Очистити історію
       </button>
     </aside>
