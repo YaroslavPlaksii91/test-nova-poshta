@@ -24,8 +24,8 @@ const History = ({ documents, setDocStatus, setDocNumber, setDocuments }) => {
       <ul className={s.list}>
         {documents.length > 0 &&
           documents.map(doc => (
-            <li key={doc} className={s.item} onClick={onDocClick}>
-              <p className={s.itemText}>{doc}</p>
+            <li key={doc} className={s.item} onClick={onDocClick} tabIndex="0">
+              <p>{doc}</p>
             </li>
           ))}
       </ul>

@@ -1,13 +1,6 @@
 import { getDocumentStatus } from 'services/api';
 import s from './DocumentForm.module.css';
 
-// 20450661810382
-// 20450657887775
-// 20400310879035
-// 20450535060749
-// 20450458741725
-// 20450460017640
-
 const DocumentForm = ({
   docNumber,
   setDocNumber,
@@ -39,7 +32,7 @@ const DocumentForm = ({
         type="text"
         name="documentNumber"
         pattern="[0-9]{14}"
-        title="Enter the document number"
+        title="Введіть номер накладної"
         required
         value={docNumber}
         onChange={handleChange}

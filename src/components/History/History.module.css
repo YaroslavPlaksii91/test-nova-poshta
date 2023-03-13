@@ -1,8 +1,7 @@
 .aside {
-  /* outline: 1px solid black; */
+  grid-column: 2 / 3;
   padding: 5px 20px;
   border-left: 1px solid black;
-  /* text-align: center; */
 }
 
 .title {
@@ -14,20 +13,20 @@
   margin-bottom: 10px;
 }
 
-.item:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.itemText {
+.item {
   display: inline-block;
   cursor: pointer;
   scale: 1;
   transition: scale 250ms ease-in-out;
 }
 
-.itemText:hover,
-.itemText:focus {
+.item:hover,
+.item:focus {
   scale: 1.05;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 10px;
 }
 
 .button {

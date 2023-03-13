@@ -20,7 +20,7 @@ export async function getDocumentStatus(documentNumber) {
   return data.data[0];
 }
 
-export async function getWarehouses(settlement = '') {
+export async function getWarehouses(settlement) {
   const { data } = await axios.post('', {
     apiKey: API_KEY,
     modelName: 'Address',

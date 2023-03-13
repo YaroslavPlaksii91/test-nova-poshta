@@ -43,6 +43,7 @@ img {
 }
 
 button,
-a {
+a,
+li {
   outline: none;
 }

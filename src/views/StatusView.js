@@ -26,6 +26,7 @@ const StatusView = () => {
   };
 
   const addNewDocument = newDoc => {
+    if (documents.includes(newDoc)) return;
     setDocuments([...documents, newDoc]);
   };
 
