@@ -4,6 +4,7 @@ import s from './DocumentForm.module.css';
 
 const DocumentForm = ({
   docNumber,
+  documents,
   setDocNumber,
   setDocStatus,
   addNewDocument,
@@ -20,6 +21,8 @@ const DocumentForm = ({
     const isValid = regex.test(docNumber);
 
     if (!isValid) return toast.warn('Номер повинен містити 14 цифр');
+
+    if (documents.includes(docNumber)) return toast.warn('Документ вже існує');
 
     setIsLoading(true);
     const {

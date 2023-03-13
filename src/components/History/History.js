@@ -1,3 +1,4 @@
+import { FcEmptyTrash } from 'react-icons/fc';
 import { getDocumentStatus } from 'services/api';
 import s from './History.module.css';
 
@@ -26,14 +27,29 @@ const History = ({
     setDocuments([]);
   };
 
+  const onDelete = e => {
+    const docNum = e.target.parentNode.previousSibling.textContent;
+    const filteredDocs = documents.filter(doc => doc !== docNum);
+
+    setDocuments([...filteredDocs]);
+  };
+
   return (
     <aside className={s.aside}>
       <h2 className={s.title}>Історія</h2>
       <ul className={s.list}>
         {documents.length > 0 &&
           documents.map(doc => (
-            <li key={doc} className={s.item} onClick={onDocClick} tabIndex="0">
-              <p>{doc}</p>
+            <li key={doc} className={s.item}>
+              <p className={s.itemText} tabIndex="0" onClick={onDocClick}>
+                {doc}
+              </p>
+              <FcEmptyTrash
+                className={s.icon}
+                tabIndex="0"
+                title="Видалити з історії"
+                onClick={onDelete}
+              />
             </li>
           ))}
       </ul>

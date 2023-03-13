@@ -26,7 +26,6 @@ const StatusView = ({ setIsLoading }) => {
   };
 
   const addNewDocument = newDoc => {
-    if (documents.includes(newDoc)) return;
     setDocuments([...documents, newDoc]);
   };
 
@@ -34,6 +33,7 @@ const StatusView = ({ setIsLoading }) => {
     <>
       <DocumentForm
         docNumber={docNumber}
+        documents={documents}
         setDocNumber={setDocNumber}
         setDocStatus={setDocStatus}
         addNewDocument={addNewDocument}
