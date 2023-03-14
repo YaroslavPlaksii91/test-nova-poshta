@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/test-nova-poshta/static/css/main.eaa60eae.css",
-    "main.js": "/test-nova-poshta/static/js/main.be6230fe.js",
-    "status-view.css": "/test-nova-poshta/static/css/status-view.c582cda1.chunk.css",
+    "main.js": "/test-nova-poshta/static/js/main.eed979c1.js",
+    "status-view.css": "/test-nova-poshta/static/css/status-view.bb0b4d77.chunk.css",
     "status-view.js": "/test-nova-poshta/static/js/status-view.fe7b5b77.chunk.js",
     "warehouses-view.css": "/test-nova-poshta/static/css/warehouses-view.1699088c.chunk.css",
     "warehouses-view.js": "/test-nova-poshta/static/js/warehouses-view.965b255b.chunk.js",
@@ -10,8 +10,8 @@
     "static/js/0.5f911833.chunk.js": "/test-nova-poshta/static/js/0.5f911833.chunk.js",
     "index.html": "/test-nova-poshta/index.html",
     "main.eaa60eae.css.map": "/test-nova-poshta/static/css/main.eaa60eae.css.map",
-    "main.be6230fe.js.map": "/test-nova-poshta/static/js/main.be6230fe.js.map",
-    "status-view.c582cda1.chunk.css.map": "/test-nova-poshta/static/css/status-view.c582cda1.chunk.css.map",
+    "main.eed979c1.js.map": "/test-nova-poshta/static/js/main.eed979c1.js.map",
+    "status-view.bb0b4d77.chunk.css.map": "/test-nova-poshta/static/css/status-view.bb0b4d77.chunk.css.map",
     "status-view.fe7b5b77.chunk.js.map": "/test-nova-poshta/static/js/status-view.fe7b5b77.chunk.js.map",
     "warehouses-view.1699088c.chunk.css.map": "/test-nova-poshta/static/css/warehouses-view.1699088c.chunk.css.map",
     "warehouses-view.965b255b.chunk.js.map": "/test-nova-poshta/static/js/warehouses-view.965b255b.chunk.js.map",
@@ -20,6 +20,6 @@
   },
   "entrypoints": [
     "static/css/main.eaa60eae.css",
-    "static/js/main.be6230fe.js"
+    "static/js/main.eed979c1.js"
   ]
 }
