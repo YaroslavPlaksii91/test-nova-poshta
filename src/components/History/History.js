@@ -39,7 +39,10 @@ const History = ({
   };
 
   const onDelete = e => {
-    const docNum = e.target.parentNode.previousSibling.textContent;
+    const docNum =
+      e.target.parentNode.previousSibling.textContent ||
+      e.target.previousSibling.textContent;
+
     const filteredDocs = documents.filter(doc => doc !== docNum);
 
     setDocuments([...filteredDocs]);
